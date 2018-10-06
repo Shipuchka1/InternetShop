@@ -1,0 +1,17 @@
+﻿.ItemLeftMenu:hover,.MenuItem:hover {
+    color: black;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.menuItem:hover {
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.SomeLi
+{
+    background-color:black;
+}
+

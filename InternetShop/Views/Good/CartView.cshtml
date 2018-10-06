@@ -1,0 +1,76 @@
+﻿@using InternetShop.Models
+@model Dictionary<Good,int>
+
+@{
+    ViewBag.Title = "CartView";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+
+}
+
+<h2>Корзина</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Изображение
+        </th>
+        <th>
+            Наименование
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            Цена со скидкой
+        </th>
+        <th>
+            Количество
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr id="tr@(item.Key.Id)">
+        <td>
+            @Html.DisplayFor(modelItem => item.Key.UrlImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Key.Name)
+        </td>
+        <td >
+            @Html.DisplayFor(modelItem => item.Key.BasePrice)
+        </td>
+        <td class="price" data-idGood="@item.Key.Id" id="price@(item.Key.Id)">
+            @Html.DisplayFor(modelItem => item.Key.Price)
+        </td>
+        
+        <td>
+            <button onclick="IncDec(@item.Key.Id,1)" class="btn btn-default inc">+</button>
+            <span id="GoodCount@(item.Key.Id)">@item.Value</span>
+            <button onclick="IncDec(@item.Key.Id,-1)" class="btn btn-default dec">-</button>
+        </td>
+        <td><button class="btn btn-default" onclick="DeleteFromCart(@item.Key.Id)">Удалить</button></td>
+    </tr>
+}
+
+
+</table>
+<div>
+    <input id="PromoInput" class="input-lg" placeholder="ПРОМОКОД" />
+    <button class="btn btn-default" onclick="PromoClick()">Применить</button>
+    <div id="ErrorMessage"></div>
+</div>
+<div>
+    Общая стоимость:
+    <div style="font-size:20px;font-weight:700" id="totalCost"></div>
+    <div >Сумма со скидкой:</div>
+    <div style="font-size:20px;font-weight:700" id="totalCostWithPromo"></div>
+
+</div>
+@Html.ActionLink("Оформить заказ","Checkout","Good",null,new { @class = "btn btn-danger"})
+<script>
+
+    reCalc();
+    
+</script>

@@ -1,0 +1,41 @@
+﻿@model InternetShop.Models.SaleGoodMap
+
+@{
+    ViewBag.Title = "AddSaleGoodMap";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>AddSaleGoodMap</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>SaleGoodMap</h4>
+        <hr />
+        <div class="form-group">
+            <div>Good</div>
+            <div class="col-md-10">
+                @Html.DropDownList("GoodId", ViewBag.Goods as SelectList, new { htmlAttributes = new { @class = "form-control" } })                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>Sale</div>
+            <div class="col-md-10">
+                @Html.DropDownList("SaleId", ViewBag.Sales as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "SaleGoodMapList")
+</div>

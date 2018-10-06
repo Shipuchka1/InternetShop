@@ -1,0 +1,39 @@
+﻿
+<div class="main-slider">
+    <div id="spinner"></div>
+    <div class="swiper-viewport">
+        <div id="slideshow0" class="swiper-container" style="width:100%; opacity: 1;">
+            <div class="swiper-wrapper" style="width:100%;">
+                <div class="swiper-slide text-center"><a href="#"><img src="~/Content/cache/catalog/Main-Banner-1-1150x478.jpg" alt="Mainbanner1" class="img-responsive" /></a></div>
+                <div class="swiper-slide text-center"><a href="#"><img src="~/Content/cache/catalog/main-banner-02-1150x478.jpg" alt="Mainbanner2" class="img-responsive" /></a></div>
+            </div>
+        </div>
+        <div class="swiper-pagination slideshow0"></div>
+        <div class="swiper-pager">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $('#slideshow0').swiper({
+        mode: 'horizontal',
+        slidesPerView: 1,
+        pagination: '.slideshow0',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 0,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: true,
+        loop: true
+    });
+</script>
+<script type="text/javascript">
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $("#spinner").fadeOut("slow");
+    });
+</script>

@@ -1,0 +1,35 @@
+﻿@using InternetShop.Models
+@model List<Voucher>
+@{
+    ViewBag.Title = "VoucherList";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Vouchers</h2>
+@Html.ActionLink("Добавить новый", "AddNewVoucher", "Admin", new { @class="btn btn-default"})
+<table class="table table-hover">
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Процент скидки</th>
+        <th>Ключевое слово</th>
+        <th>Дата начала</th>
+        <th>Дата конца</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (Voucher item in Model)
+    {
+    <tr>
+        <th>@item.Name</th>
+        <th>@item.Description</th>
+        <th>@item.PercentOff</th>
+        <th>@item.KeyWord</th>
+        <th>@item.StartDate</th>
+        <th>@item.FinishDate</th>
+        <th>@Html.ActionLink("Редактировать", "EditVoucher", "Admin", new { id = item.Id }, new { @class = "btn btn-default" })</th>
+        <th>@Html.ActionLink("Удалить", "DeleteVoucher", "Admin", new { id = item.Id }, new { @class = "btn btn-default" })</th>
+    </tr>
+    }
+</table>
+

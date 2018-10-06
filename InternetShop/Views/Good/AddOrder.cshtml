@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "AddOrder";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+@if (ViewBag.StateOrder == "success")
+{
+    <div style="margin:20px; ">
+        <div style="font-size:20px; font-weight:800;">Спасибо за заказ!</div>
+        <div>С вами свяжутся для подтверждения по указанному номеру телефона!</div>
+    </div>
+}
+else
+{
+    <div style="margin:20px; ">
+        <div style="font-size:20px; font-weight:800; color:red;">Произошла ошибка!</div>
+        <div>Попробуйте оформить заказ снова</div>
+    </div>
+}
+

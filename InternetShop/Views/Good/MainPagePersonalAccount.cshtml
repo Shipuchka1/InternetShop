@@ -1,0 +1,34 @@
+﻿@using InternetShop.Models
+@using System.Reflection;
+@model ApplicationUser
+
+@{
+    ViewBag.Title = "MainPagePersonalAccount";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+
+<div style="margin:40px;"><span style="font-size:20px; font-weight:500;">Привет, @Model.UserName. Ваши данные:</span> </div>
+@Html.ActionLink("Редактировать", "PersonalAccount", "Good", null, new { @class = "btn btn-danger" })
+@{
+    List<string> ps = new List<string>() { "Claims", "Roles", "Logins", "EmailConfirmed", "PasswordHash", "SecurityStamp", "Id", "PhoneNumberConfirmed", "LockoutEnabled", "AccessFailedCount", "TwoFactorEnabled", "IsLegalEntity", "LegalAddresIsActual" };
+}
+<table class="table table-hover">
+    @foreach (PropertyInfo property in Model.GetType().GetProperties())
+    {
+        if (property.GetValue(Model) == null || ps.Contains(property.Name)) { continue; }
+        else
+        {
+            <tr>
+                <td>@property.Name</td>
+                <td>@property.GetValue(Model)</td>
+            </tr>
+        }
+    }
+
+</table>
+
+
+@Html.ActionLink("История заказов", "OrdersStory", "Good", null, new { @class = "btn btn-danger" })
+

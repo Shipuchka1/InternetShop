@@ -1,0 +1,58 @@
+﻿@using InternetShop.Models
+@model List<Good>
+
+    @foreach (var good in Model)
+    {
+    <div  id="Goods" class="product-layout product-list col-xs-12">
+        <div class="product-block product-thumb">
+            <div class="product-block-inner">
+                <div class="image">
+                    <a href="@Url.Action("GoodDetails","Good",new { id = good.Id })"><img src="@good.UrlImage" width="300" height="400" alt="@good.Name" title="@good.Name" class="img-responsive" /></a>
+
+
+                </div>
+                <div class="product-details">
+                    <div class="caption">
+
+
+                        <h5>@Html.ActionLink(good.Name,"GoodDetails","Good",new {id = good.Id},null)</h5>
+
+
+                        <p class="desc">@good.Description</p>
+                        <p class="price">
+                            <span class="price-old">$@good.BasePrice</span><span class="price-new">$@good.Price</span>
+                        </p>
+
+                        <div class="button-group grid">
+                            <button type="button" onclick="cartAdd(@good.Id);" title="Add to cart" data-toggle="tooltip"><span>Add to Cart </span></button>
+                            <button class="wishlist_button" type="button" data-toggle="tooltip" title="Add to Wish List " onclick="wishlist.add('41 ');"></button>
+                            <button class="compare_button" type="button" data-toggle="tooltip" title="Add to Compare " onclick="compare.add('41 ');"></button>
+
+                            <div class="quickview" title="Quick View" data-toggle="tooltip"><a href="index059b.html?route=product/quick_view&amp;product_id=41"></a></div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-right">
+                        <p class="price">
+                            <span class="price-old">$@good.BasePrice</span> <span class="price-new">$@good.Price</span>
+                        </p>
+
+                        <div class="button-group list">
+                            <button type="button" onclick="cartAdd(@good.Id);" title="Add to cart" data-toggle="tooltip"><span>Add to Cart </span></button>
+                            <button class="wishlist" type="button" data-toggle="tooltip" title="Add to Wish List " onclick="wishlist.add('41 ');"></button>
+                            <button class="compare" type="button" data-toggle="tooltip" title="Add to Compare " onclick="compare.add('41 ');"></button>
+
+                            <div class="quickview" title="Quick View" data-toggle="tooltip"><a href="index059b.html?route=product/quick_view&amp;product_id=41"></a></div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    }
+    

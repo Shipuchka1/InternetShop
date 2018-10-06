@@ -1,0 +1,29 @@
+﻿@using InternetShop.Models
+@model List<SaleGoodMap>
+@{
+    ViewBag.Title = "SaleGoodMapList";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Sale</h2>
+@Html.ActionLink("Добавить новый", "AddSaleGoodMap", "Admin", new { @class = "btn btn-default" })
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Good</th>
+        <th>Sale</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (SaleGoodMap item in Model)
+    {
+        <tr>
+            <th>@item.Id</th>
+            <th>@item.Good.Name</th>
+            <th>@item.Sale.Name</th>
+            <th>@Html.ActionLink("Редактировать", "EditSaleGoodMap", "Admin", new { id = item.Id }, new { @class = "btn btn-default" })</th>
+            <th>@Html.ActionLink("Удалить", "DeleteSaleGoodMap", "Admin", new { id = item.Id }, new { @class = "btn btn-default" })</th>
+        </tr>
+    }
+</table>
+

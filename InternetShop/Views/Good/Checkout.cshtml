@@ -1,0 +1,35 @@
+﻿@using InternetShop.Models
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Checkout</h2>
+
+<div style="color:red">@ViewBag.ControlMessage</div>
+
+@{ 
+    Dictionary<int,int> cart = (Dictionary<int, int>)Session["Cart"];
+    double sum = 0;
+    foreach (KeyValuePair<int,int> item in cart)
+    {
+        Good temp =  ModelService.GetGoodById(item.Key);
+        temp.CalcPrice();
+        sum += (temp.Price * item.Value);
+    }
+    if(Session["Promo"]!=null)
+    {
+        Voucher v = ModelService.GetVoucherById((int)Session["Promo"]);
+        sum = sum * (100 - v.PercentOff) / 100;
+    }
+
+    TempData["Cart"] = cart;
+}
+<div style="border:5px solid black; margin:10px;">
+    <div style="padding:10px;">Позиций в заказе:<span style="font-size:20px; color:limegreen"> @cart.Values.Sum()</span></div>
+    <div style="padding:10px;">Общая сумма: <span style="font-size:20px; color:limegreen; font-weight:700"> @sum</span></div>
+</div>
+@if(ViewBag.ControlMessage=="Подтвердите заказ")
+{
+    @Html.ActionLink("Подтвердить", "AddOrder", "Good", new { totalSum = sum}, new { @class = "btn btn-danger" })
+}

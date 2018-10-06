@@ -1,0 +1,22 @@
+﻿@using InternetShop.Models
+
+
+@{ 
+    ViewBag.Goods = ModelService.GetAllCategories().Where(w=>w.ParentId==null);
+}
+
+        <div class="box category">
+            <div class="box-heading" style="margin-left:65px;">Categories</div>
+            <div class="box-content" style="">
+                <ul class="box-category treeview-list treeview" id="UlCategory" data-url="@Url.Action("LeftSubMenuPartial","Good")">
+                    @foreach (Good item in ViewBag.Goods)
+    {
+                <li class="menuItem" data-itemcl="false" data-id="@item.Id" onclick="MenuItemClick(this)">
+                    <div class="ItemLeftMenu">@item.Name</div>
+                </li>
+}
+
+                </ul>
+            </div>
+        </div>
+

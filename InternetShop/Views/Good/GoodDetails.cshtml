@@ -1,0 +1,227 @@
+﻿@using InternetShop.Models
+@model Good
+
+@{
+    ViewBag.Title = "GoodDetails";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>GoodDetails</h2>
+
+<div id="product-product" class="container">
+    <ul class="breadcrumb">
+        <li><a href="index9328.html?route=common/home"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">@Model.Name</a></li>
+    </ul>
+
+    <div class="row">
+        <div id="content" class="productpage col-sm-9">
+            <h1>@Model.Name</h1>
+            <div class="row">
+                <div class="col-sm-6 product-left">
+                    <div class="product-info">
+                        <div class="left product-image thumbnails">
+
+                            <!-- Megnor Cloud-Zoom Image Effect Start -->
+                            <div class="image"><a class="thumbnail" href="@Model.UrlImage" title="@Model.Name"><img id="tmzoom" src="@Model.UrlImage" data-zoom-image="@Model.UrlImage" title="@Model.Name" alt="@Model.Name" /></a></div>
+
+
+                            <div class="additional-carousel">
+                                <div class="customNavigation">
+                                    <span class="fa prev">&nbsp;</span>
+                                    <span class="fa next">&nbsp;</span>
+                                </div>
+
+                                <div id="additional-carousel" class="image-additional product-carousel">
+
+                                    <div class="slider-item">
+                                        <div class="product-block">
+                                            <a href="@Model.UrlImage" title="@Model.Name" class="elevatezoom-gallery" data-image="@Model.UrlImage" data-zoom-image="@Model.UrlImage"><img src="@Model.UrlImage" width="100" height="120" title="@Model.Name" alt="@Model.Name" /></a>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                </div>
+                                <span class="additional_default_width" style="display:none; visibility:hidden"></span>
+                            </div>
+
+
+                            <!-- Megnor Cloud-Zoom Image Effect End-->
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <div class="col-sm-6 product-right">
+
+                    <h3 class="product-title">@Model.Name</h3>
+                    <br>
+
+                    <ul class="list-unstyled">
+                        <li><span class="desc">Product Code:</span> @Model.Id</li>
+
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li>
+                            <h4>@Model.Price</h4>
+                        </li>
+                        <li></li>
+                    </ul>
+                    <div id="product">
+                        <div class="form-group">
+                            <button type="button" id="button-cart" class="addtocart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block" onclick="cartAdd(@Model.Id)">Add to Cart</button>
+                            <sapn class="links">
+                                <button type="button" class="btn btn-default wishlist" title="Add to Wish List" onclick="wishlist.add('49');"><i class="fa fa-heart"></i>Add to Wish List</button>
+                                <button type="button" class="btn btn-default compare" title="Add to Compare" onclick="compare.add('49');"><i class="fa fa-bar-chart"></i>Add to Compare</button>
+                            </sapn>
+                        </div>
+                    </div>
+                    <!-- <hr> -->
+                    <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style" data-url="index3d7a.html?route=product/product&amp;product_id=49"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
+                    <script type="text/javascript" src="../../../s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+                    <!-- AddThis Button END -->
+                    <div class="content_product_block">
+                        <div>
+                            <div class="product-tabs" id="custom_tab">
+                                <ul>
+                                    <li><a class="first" href="#tab-1" style="display: inline;">delivery</a></li>
+                                    <li><a class="second" href="#tab-2" style="display: inline;">Shipping</a></li>
+                                    <li><a class="third" href="#tab-3" style="display: inline;">SizeGuide</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab_product" id="tab-1">@Model.Description</div>
+                            <div class="tab_product" id="tab-2">
+                                <span><strong>About Me :</strong></span>@Model.Description<br>
+                                <br>
+              
+                            </div>
+                            <div class="tab_product" id="tab-3">
+                                <table class="size_guide_table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Size</th>
+                                            <th>S</th>
+                                            <th>M</th>
+                                            <th>L</th>
+                                            <th>XL</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Men</td>
+                                            <td>7-10</td>
+                                            <td>10-13</td>
+                                            <td>13-15</td>
+                                            <td>15-17</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Women</td>
+                                            <td>7-9</td>
+                                            <td>10-12</td>
+                                            <td>13-14</td>
+                                            <td>15-16</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- product page tab code start-->
+            </div>
+        </div>
+        <aside id="column-right" class="col-sm-3 hidden-xs">
+            <!-- <div class="swiper-viewport"> -->
+            <div id="banner0" class="single-banner">
+                <!-- <div class="swiper-wrapper"> -->
+                <div class="item">
+                    <a href="#">
+                        <img src="~/Content/cache/catalog/Right-banner-271x320.jpg" alt="Right Banner1" class="img-responsive" />
+                    </a>
+                </div>
+                <!-- </div> -->
+                <!-- If we need pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+            <!-- </div> -->
+            <script type="text/javascript">
+<!--
+$('#banner0').swiper({
+	effect: 'fade',
+	autoplay: 2500,
+    pagination: '.swiper-pagination',  // If we need pagination
+    autoplayDisableOnInteraction: false
+});
+--></script>
+            <div class="box latest">
+                <div class="box-heading">
+                    <h3>Latest</h3>
+                </div>
+                <div class="box-content">
+                    <div class="customNavigation">
+                        <a class="fa prev fa-arrow-left">&nbsp;</a>
+                        <a class="fa next fa-arrow-right">&nbsp;</a>
+                    </div>
+
+                    <div class="box-product product-carousel" id="latest-carousel">
+                        <div class="slider-item">
+                            <div class="product-block product-thumb transition">
+                                <div class="product-block-inner">
+                                    <div class="image">
+                                        <a href="index3d7a.html?route=product/product&amp;product_id=49"><img src="@Model.UrlImage" alt="Fabseasons Printed Cotton Men'S Scarf " title="Fabseasons Printed Cotton Men'S Scarf " class="img-responsive" /></a>
+
+                                    </div>
+                                    <div class="product-details">
+                                        <div class="caption">
+                                            <h5><a href="index3d7a.html?route=product/product&amp;product_id=49">@Model.Name</a></h5>
+  
+                                            <p class="price">
+                                                @Model.Price
+                                            </p>
+                                        </div>
+
+                                        <div class="button-group">
+                                            <button type="button" class="addtocart" onclick="cartAdd(@Model.Id)">Add to Cart </button>
+                                            <button class="wishlist" type="button" data-toggle="tooltip" title="Add to Wish List " onclick="wishlist.add('49 ');"><i class="fa fa-heart"></i></button>
+                                            <button class="compare" type="button" data-toggle="tooltip" title="Add to Compare " onclick="compare.add('49 ');"><i class="fa fa-exchange"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <span class="latest_default_width" style="display:none; visibility:hidden"></span>
+            <script type="text/javascript">
+$(document).ready(function(){
+	$('.latest .box-product').bxSlider({
+		mode: 'vertical',
+		minSlides:3,
+		slideMargin:10,
+		slideWidth:261
+	 });
+});
+            </script>
+        </aside>
+
+
+    </div>
+    <div id="tabs_info" class="product-tab col-sm-12">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-description">
+                @Model.Description
+            </div>
+           
+        </div>
+    </div>

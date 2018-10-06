@@ -1,0 +1,35 @@
+﻿@using InternetShop.Models
+@model List<Sale>
+@{
+    ViewBag.Title = "SaleList";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<h2>Sale</h2>
+@Html.ActionLink("Добавить новый", "AddSale", "Admin", new { @class = "btn btn-default" })
+<table class="table table-hover">
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Процент скидки</th>
+        <th>Изображение</th>
+        <th>Дата начала</th>
+        <th>Дата конца</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (Sale item in Model)
+    {
+        <tr>
+            <th>@item.Name</th>
+            <th>@item.Description</th>
+            <th>@item.PercentSale</th>
+            <th><img src="@item.Url" /></th>
+            <th>@item.StartDate</th>
+            <th>@item.FinishDate</th>
+            <th>@Html.ActionLink("Редактировать", "EditSale", "Admin", new { id = item.Id }, new { @class = "btn btn-default" })</th>
+            <th>@Html.ActionLink("Удалить", "DeleteSale", "Admin", new { id = item.Id }, new { @class = "btn btn-default" })</th>
+        </tr>
+    }
+</table>
+

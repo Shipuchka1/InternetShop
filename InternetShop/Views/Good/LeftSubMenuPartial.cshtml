@@ -1,0 +1,9 @@
+﻿@using InternetShop.Models
+@model List<Good>
+<ul class="@(Model.Count>0? "res"+Model[0].ParentId:"")">
+    @foreach (Good item in Model)
+    {
+
+        <li class="menuItem" data-itemcl="false" data-id="@item.Id" onclick="MenuItemClick(this)">@item.Name</li>
+    }
+</ul>

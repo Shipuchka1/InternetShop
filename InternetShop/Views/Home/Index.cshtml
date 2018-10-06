@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "MainPageView";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+
+}
+
+<h2>MainPageView</h2>
+<div id="product-category" class="container">
+    <ul class="breadcrumb">
+        <li><a href="index9328.html?route=common/home"><i class="fa fa-home"></i></a></li>
+        <li><a href="index0b7f.html?route=product/category&amp;path=84">Toys</a></li>
+    </ul>
+    <div class="row">
+        <aside id="column-left" class="col-sm-3 hidden-xs">
+            @Html.Partial("LeftMenuPartial")
+            <script type="text/javascript">
+<!--
+            $('#button-filter').on('click', function () {
+                filter = [];
+
+                $('input[name^=\'filter\']:checked').each(function (element) {
+                    filter.push(this.value);
+                });
+
+                location = 'indexcea4.html?route=product/category&amp;path=84&amp;filter=' + filter.join(',');
+            });
+            //--></script>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+                <title>Untitled Document</title>
+            </head>
+
+            <body>
+            </body>
+
+            <!-- Mirrored from opencart.templatemela.com/OPCADD2/OPC036/index.php?route=product/category&path=84 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Sep 2018 02:47:02 GMT -->
+        </html>
+
+        <!-- <div class="swiper-viewport"> -->
+        
+    </aside>
+    <!-- </div> -->
+    <script type="text/javascript">
+<!--
+        $('#banner0').swiper({
+            effect: 'fade',
+            autoplay: 2500,
+            pagination: '.swiper-pagination',  // If we need pagination
+            autoplayDisableOnInteraction: false
+        });
+        --></script>
+    </aside>
+
+    <div id="content" class="col-sm-9 category">
+      
+
+        <div class="category_filter" id="filter">
+            <div class="col-md-4 btn-list-grid">
+                <div class="btn-group">
+
+                    <button type="button" id="grid-view" class="btn btn-default grid" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+                    <button type="button" id="list-view" class="btn btn-default list" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+                </div>
+            </div>
+            <div class="compare-total"><a href="index6431.html?route=product/compare" id="compare-total"> Product Compare (0)</a></div>
+            <div class="pagination-right">
+               
+               
+
+            </div>
+        </div>
+
+
+        <div class="row category-product" id="goodsList" data-url="@Url.Action("GetGoodsList","Good")">
+
+        </div>
+
+      
+    </div>
+</div>
+</div>
+
+
+
+
+
+
